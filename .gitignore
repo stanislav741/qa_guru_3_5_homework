@@ -40,4 +40,4 @@ target/
 .todo
 local.properties
 src/test/resources/credentials.txt
-# test comment
+!src/test/resources/
