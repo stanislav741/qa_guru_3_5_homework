@@ -39,4 +39,4 @@ target/
 /gradlew.bat
 .todo
 local.properties
-src/test.resources/
+src/test.resources/credentials.txt
