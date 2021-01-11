@@ -24,7 +24,7 @@ public class IssueCreate {
     }
 
     @Test
-    void SelenideSteps() {
+    void selenideSteps() {
 
         open("https://github.com/");
 
@@ -63,7 +63,7 @@ public class IssueCreate {
     }
 
     @Test
-    void LambdaSteps() {
+    void lambdaSteps() {
         step("Open the website", () -> {
             open("https://github.com/");
         });
@@ -119,7 +119,7 @@ public class IssueCreate {
     }
 
     @Test
-    public void annotationSteps() {
+    void annotationSteps() {
         final StepsDetails steps = new StepsDetails();
 
         steps.openMainPage();
