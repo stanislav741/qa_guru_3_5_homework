@@ -16,8 +16,8 @@ import static io.qameta.allure.Allure.step;
 
 public class IssueCreate {
 
-    String varUsername = Files.readAllLines(Paths.get("src/test/resources/credentials.txt")).get(0),
-    varPassword = Files.readAllLines(Paths.get("src/test/resources/credentials.txt")).get(1),
+    String varUsername = Files.readAllLines(Paths.get("src/test/resources/credentials.txt")).get(0),    // username in the file is empty by default
+    varPassword = Files.readAllLines(Paths.get("src/test/resources/credentials.txt")).get(1),           // password in the file is empty by default
     varIssueTitle = "New issue";
 
     public IssueCreate() throws IOException {
@@ -60,10 +60,12 @@ public class IssueCreate {
         $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
         $("#labels-select-menu").sibling(0).shouldHave(text("duplicate"));
         $("#labels-select-menu").sibling(0).shouldHave(text("question"));
+
     }
 
     @Test
     void lambdaSteps() {
+
         step("Open the website", () -> {
             open("https://github.com/");
         });
@@ -120,6 +122,7 @@ public class IssueCreate {
 
     @Test
     void annotationSteps() {
+
         final StepsDetails steps = new StepsDetails();
 
         steps.openMainPage();
