@@ -25,7 +25,6 @@ public class IssueCreate {
 
     @Test
     void selenideSteps() {
-
         open("https://github.com/");
 
         $(byText("Sign in")).click();
@@ -48,7 +47,7 @@ public class IssueCreate {
         $("#assignees-select-menu").click();
 
         $("#labels-select-menu").click();
-        $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
+//        $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
         $("#labels-select-menu").$(".select-menu-list").$(byText("duplicate")).click();
         $("#labels-select-menu").$(".select-menu-list").$(byText("question")).click();
         $("#labels-select-menu").click();
@@ -57,15 +56,13 @@ public class IssueCreate {
 
         $(".js-issue-title").shouldHave(text(varIssueTitle));
         $("#assignees-select-menu").sibling(0).shouldHave(text(varUsername));
-        $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
+//        $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
         $("#labels-select-menu").sibling(0).shouldHave(text("duplicate"));
         $("#labels-select-menu").sibling(0).shouldHave(text("question"));
-
     }
 
     @Test
     void lambdaSteps() {
-
         step("Open the website", () -> {
             open("https://github.com/");
         });
@@ -101,7 +98,7 @@ public class IssueCreate {
 
         step("Select labels", () -> {
             $("#labels-select-menu").click();
-            $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
+//            $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
             $("#labels-select-menu").$(".select-menu-list").$(byText("duplicate")).click();
             $("#labels-select-menu").$(".select-menu-list").$(byText("question")).click();
             $("#labels-select-menu").click();
@@ -114,7 +111,7 @@ public class IssueCreate {
         step("Data assert for the created issue", () -> {
             $(".js-issue-title").shouldHave(text(varIssueTitle));
             $("#assignees-select-menu").sibling(0).shouldHave(text(varUsername));
-            $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
+//            $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
             $("#labels-select-menu").sibling(0).shouldHave(text("duplicate"));
             $("#labels-select-menu").sibling(0).shouldHave(text("question"));
         });
@@ -122,7 +119,6 @@ public class IssueCreate {
 
     @Test
     void annotationSteps() {
-
         final StepsDetails steps = new StepsDetails();
 
         steps.openMainPage();
@@ -139,12 +135,12 @@ public class IssueCreate {
     public class StepsDetails {
 
         @Step("Open the website")
-                public void openMainPage() {
+        public void openMainPage() {
             open("https://github.com/");
         }
 
         @Step("Sign in")
-                public void signIn() {
+        public void signIn() {
             $(byText("Sign in")).click();
             $("#login_field").val(varUsername);
             $("#password").val(varPassword);
@@ -153,53 +149,51 @@ public class IssueCreate {
         }
 
         @Step("Find & open the repo")
-                public void findRepo() {
+        public void findRepo() {
             $("#repos-container").shouldBe(visible);
             $("input[placeholder='Find a repository…']").val("qa_guru_3_5_homework").pressEnter();
             $(byText("qa_guru_3_5_homework")).click();
         }
 
         @Step("Open new issue form")
-                public void openNewIssueForm() {
+        public void openNewIssueForm() {
             $(byText("Code")).closest("li").sibling(0).click();
             $("#filters-select-menu").parent().sibling(0).shouldHave(text("New issue")).click();
         }
 
         @Step("Enter issue title")
-                public void enterIssueTitle() {
+        public void enterIssueTitle() {
             $("#issue_title").val(varIssueTitle);
         }
 
         @Step("Select assignee user")
-                public void selectAssigneeUser() {
+        public void selectAssigneeUser() {
             $("#assignees-select-menu").click();
             $("#assignees-select-menu").$(".select-menu-list").$(byText(varUsername)).click();
             $("#assignees-select-menu").click();
         }
 
         @Step("Select labels")
-                public void selectLables() {
+        public void selectLables() {
             $("#labels-select-menu").click();
-            $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
+//            $("#labels-select-menu").$(".select-menu-list").$(byText("documentation")).click();
             $("#labels-select-menu").$(".select-menu-list").$(byText("duplicate")).click();
             $("#labels-select-menu").$(".select-menu-list").$(byText("question")).click();
             $("#labels-select-menu").click();
         }
 
         @Step("Submit new issue")
-                public void submitNewIssue() {
+        public void submitNewIssue() {
             $("#new_issue .js-slash-command-surface").$(byText("Submit new issue")).click();
         }
 
         @Step("Data assert for the created issue")
-                public void dataAssert() {
+        public void dataAssert() {
             $(".js-issue-title").shouldHave(text(varIssueTitle));
             $("#assignees-select-menu").sibling(0).shouldHave(text(varUsername));
-            $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
+//            $("#labels-select-menu").sibling(0).shouldHave(text("documentation"));
             $("#labels-select-menu").sibling(0).shouldHave(text("duplicate"));
             $("#labels-select-menu").sibling(0).shouldHave(text("question"));
         }
-
     }
-
 }
